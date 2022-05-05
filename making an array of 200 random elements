@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+/**
+* created by Aya Nabil on 6/5/2022.
+* making an array of 200 random element 
+* using ArrayIndexOutOfBoundsException.
+**/
+
+public class Main {
+
+/**
+     * 
+     * @return getArray to get the random number of the array.
+     */
+    public static int[] getArray() {
+        int[] array = new int[200];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int)(Math.random() * 200) + 1;
+        }
+        return array;
+    }
+    public static void main(String[] args) {
+    
+// make a scanner to take the input from the user
+
+        Scanner in = new Scanner(System.in);
+        
+        int[] array = getArray();
+
+        System.out.print("Enter the index of the array: ");
+        try {
+            System.out.println("The corresponding element value is: " +
+                    array[in.nextInt()]);
+        }
+        catch (ArrayIndexOutOfBoundsException ex) {
+            System.out.println("Out of Bounds.");
+        }
+
+    }
+}
